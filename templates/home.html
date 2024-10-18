@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for message in object_list %}
+  <div class="post-entry">
+    <h2><a href="{% url 'detail_page' message.pk %}">{{ message.title }}</a></h2>
+    <p>{{ message.text|slice:":100" }}</p>
+  </div>
+{% endfor %}
+{% endblock content %}
