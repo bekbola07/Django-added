@@ -1,10 +1,19 @@
-{% extends 'base.html' %}
-
-{% block content %}
-{% for message in object_list %}
-  <div class="post-entry">
-    <h2><a href="{% url 'detail_page' message.pk %}">{{ message.title }}</a></h2>
-    <p>{{ message.text|slice:":100" }}</p>
+% extends 'base.html' %}
+% block content%}
+<main class="container mt-3 mb-5">
+  <!-- featured news -->
+  <div class="row my-3">
+    <!-- Left -->|
+    <div class="col-md-7">
+    <div class="card mb-3">
+    <img src="/media/{{first_news.image}}" class="card-img-top" alt="{{first_news.title}}">
+      <div class="card-body">
+    <h5 class="card-title">{{first_news.title}}</h5>
+    <hr/>
+      <p class="card-text"><a href="/detail/{{first_news.id}}" class="btn btn-sm btn-prima"></a></p>
+    </div>
   </div>
-{% endfor %}
-{% endblock content %}
+  <!-- Right -->
+  <div class="col-md-5" style="max-height: 450px; overflow: auto;">
+  {% for news in three_news %}
+  </div></div></div></main>
