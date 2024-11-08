@@ -1,7 +1,8 @@
 from django.conf import settings
 from django.urls import path
 from django.conf.urls.static import static
-from .views import category, region, all_region, all_category, CreatePost, all_news, home, detail
+from .views import category, region, all_region, all_category, CreatePost, all_news, home, detail, user_logout, \
+    SignUpView, Edit_post, Delete_post
 
 urlpatterns=[
     path('', home, name='home'),
@@ -12,4 +13,8 @@ urlpatterns=[
     path('all-regions', all_region, name='all-region'),
     path('create-post/new', CreatePost.as_view(), name='create_post'),
     path('detail/<int:id>', detail, name='detail'),
+    path('logout', user_logout, name='logout'),
+    path('signup',SignUpView.as_view(), name ='signup'),
+    path('edit_post/<int:pk>', Edit_post.as_view(), name='edit_post'),
+    path('delete_post/<int:pk>', Delete_post.as_view(), name='delete_post')
     ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

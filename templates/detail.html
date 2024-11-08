@@ -11,6 +11,8 @@
           <h5 class="card-title">{{news.title}}</h5>
           <hr/>
           <p class="card-text">{{news.text}}</p>
+          <li><a href="{% url 'edit_post' news.pk %}"> Taxrirlash </a></li>
+          <li><a href="{% url 'delete_post' news.pk %}"> DELETE </a></li>
         </div>
 
       </div>
